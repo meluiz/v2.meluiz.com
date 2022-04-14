@@ -1,0 +1,84 @@
+{
+  "title": "Luiz Felipe",
+  "description": "Portfólio pessoal com o objetivo de mostrar meus projetos durante minha carreira.",
+  "additionalMetaTags": [
+    {
+      "property": "author",
+      "content": "meluiz#2667"
+    },
+    {
+      "property": "theme-color",
+      "content": "#161618"
+    },
+    {
+      "property": "apple-mobile-web-app-capable",
+      "content": "yes"
+    },
+    {
+      "property": "apple-mobile-web-app-status-bar-style",
+      "content": "black-translucent"
+    }
+  ],
+  "additionalLinkTags": [
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_32.png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_16.png",
+      "sizes": "16x16"
+    },
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_24.png",
+      "sizes": "24x24"
+    },
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_32.png",
+      "sizes": "32x32"
+    },
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_48.png",
+      "sizes": "48x48"
+    },
+    {
+      "rel": "icon",
+      "href": "/icons/favicon_64.png",
+      "sizes": "64x64"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/favicons/favicon_152.png",
+      "sizes": "152x152"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/favicons/favicon_167.png",
+      "sizes": "167x168"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/favicons/favicon_180.png",
+      "sizes": "180x180"
+    }
+  ],
+  "openGraph": {
+    "title": "Luiz Felipe",
+    "description": "Portfólio pessoal com o objetivo de mostrar meus projetos durante minha carreira.",
+    "site_name": "meluiz",
+    "type": "website",
+    "locale": "pt_BR",
+    "url": "https://meluiz.com",
+    "images": [
+      {
+        "url": "https://meluiz.com/opengraph-meluiz.png",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Open Graph Image"
+      }
+    ]
+  }
+}
