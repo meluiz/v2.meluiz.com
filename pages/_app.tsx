@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 import { ChakraTheme } from '@src/theme'
 import { SEOConfig } from '@src/config'
+import { CommandPalette } from '@src/types/providers'
 
 function Application({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
@@ -15,7 +16,7 @@ function Application({ Component, pageProps }: AppPropsWithLayout) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      {getLayout(<Component {...pageProps} />)}
+      <CommandPalette>{getLayout(<Component {...pageProps} />)}</CommandPalette>
     </ChakraProvider>
   )
 }
