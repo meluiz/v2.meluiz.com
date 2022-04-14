@@ -7,8 +7,9 @@ import {
   IconCode,
   IconCopy,
   IconMail,
+  IconX,
 } from '@tabler/icons'
-import { Box, Flex, Grid, Input, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Input, Link, Text } from '@chakra-ui/react'
 import {
   Action,
   ActionImpl,
@@ -144,9 +145,28 @@ const Animator = ({ children }: { children: ReactNode }) => {
 }
 
 const Search = () => {
+  const { query } = useKBar()
   return (
     <Flex flexDir="column" borderBottom="1px solid" borderColor="mauve.1000">
-      <Breadcrumbs />
+      <Flex p="8px 12px 0px">
+        <Breadcrumbs />
+        <Button
+          w="24px"
+          h="24px"
+          minW="0"
+          minH="0"
+          p="0"
+          flexShrink={0}
+          flexGrow={0}
+          bg="transparent"
+          color="mauve.100"
+          _hover={{ bg: 'mauve.800' }}
+          _active={{ bg: 'mauve.600' }}
+          onClick={() => query.toggle()}
+        >
+          <IconX size={16} />
+        </Button>
+      </Flex>
       <Input
         h="48px"
         padding="12px 16px"
@@ -179,10 +199,9 @@ const Breadcrumbs = () => {
   })
 
   const paths = [{ location: '/', text: 'Home' }, ...crumblist]
-  console.log(paths)
 
   return (
-    <Flex p="8px 12px 0px" gap="6px">
+    <Flex flex="1" flexWrap="wrap" alignItems="flex-start" gap="6px">
       {paths.map((path, index) => (
         <Breadcrumb key={`breadcumb-kbar-${index}`} text={path.text} location={path.location} />
       ))}
