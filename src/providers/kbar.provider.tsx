@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useRef } from 'react'
+import { forwardRef, ReactNode, useMemo, useRef } from 'react'
 import { useRouter } from 'next/router'
 import {
   IconBrandCodepen,
@@ -16,9 +16,11 @@ import {
   KBarPortal,
   KBarPositioner,
   KBarProvider,
+  KBarQuery,
   KBarResults,
   KBarSearch,
   NO_GROUP,
+  useKBar,
   useMatches,
 } from 'kbar'
 
@@ -144,11 +146,7 @@ const Animator = ({ children }: { children: ReactNode }) => {
 const Search = () => {
   return (
     <Flex flexDir="column" borderBottom="1px solid" borderColor="mauve.1000">
-      <Flex p="8px 12px 0px" gap="6px">
-        <Link borderRadius="6px" px="8px" bg="mauve.800" color="mauve.100" fontSize="14px">
-          Home
-        </Link>
-      </Flex>
+      <Breadcrumbs />
       <Input
         h="48px"
         padding="12px 16px"
@@ -165,6 +163,45 @@ const Search = () => {
         as={KBarSearch}
       />
     </Flex>
+  )
+}
+
+const Breadcrumbs = () => {
+  const router = useRouter()
+  const [path] = router.asPath.split('?')
+  const nestedRoutes = path.split('/').filter((r) => r.length > 0)
+
+  const crumblist = nestedRoutes.map((subpath, index) => {
+    const location = '/' + nestedRoutes.slice(0, index + 1).join('/')
+    const text = subpath
+
+    return { location, text }
+  })
+
+  const paths = [{ location: '/', text: 'Home' }, ...crumblist]
+  console.log(paths)
+
+  return (
+    <Flex p="8px 12px 0px" gap="6px">
+      {paths.map((path, index) => (
+        <Breadcrumb key={`breadcumb-kbar-${index}`} text={path.text} location={path.location} />
+      ))}
+    </Flex>
+  )
+}
+
+const Breadcrumb = ({ text, location }: { text: string; location: string }) => {
+  return (
+    <Link
+      borderRadius="6px"
+      px="8px"
+      bg="mauve.800"
+      color="mauve.100"
+      fontSize="14px"
+      href={location}
+    >
+      {text}
+    </Link>
   )
 }
 
