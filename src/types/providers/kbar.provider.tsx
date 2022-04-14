@@ -86,6 +86,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
   ]
 
   return (
+    // @ts-ignore
     <KBarProvider
       actions={actions}
       options={{
