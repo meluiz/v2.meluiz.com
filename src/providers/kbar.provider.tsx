@@ -134,8 +134,8 @@ const Animator = ({ children }: { children: ReactNode }) => {
       maxW="420px"
       borderRadius="8px"
       overflow="hidden"
-      bg="mauve.1200"
-      color="mauve.100"
+      bg="mauve_dark.1200"
+      color="mauve_dark.100"
       as={KBarAnimator}
     >
       {children}
@@ -146,7 +146,7 @@ const Animator = ({ children }: { children: ReactNode }) => {
 const Search = () => {
   const { query } = useKBar()
   return (
-    <Flex flexDir="column" borderBottom="1px solid" borderColor="mauve.1000">
+    <Flex flexDir="column" borderBottom="1px solid" borderColor="mauve_dark.1000">
       <Flex p="8px 12px 0px">
         <Breadcrumbs />
         <Button
@@ -158,9 +158,9 @@ const Search = () => {
           flexShrink={0}
           flexGrow={0}
           bg="transparent"
-          color="mauve.100"
-          _hover={{ bg: 'mauve.800' }}
-          _active={{ bg: 'mauve.600' }}
+          color="mauve_dark.100"
+          _hover={{ bg: 'mauve_dark.800' }}
+          _active={{ bg: 'mauve_dark.600' }}
           onClick={() => query.toggle()}
         >
           <IconX size={16} />
@@ -176,10 +176,10 @@ const Search = () => {
         border="none"
         margin={0}
         background="transparent"
-        color="mauve.100"
+        color="mauve_dark.100"
         placeholder="Digite algum comando ou palavra-chave"
         _focus={{ outline: 'none' }}
-        _placeholder={{ color: 'mauve.600' }}
+        _placeholder={{ color: 'mauve_dark.600' }}
         as={KBarSearch}
       />
     </Flex>
@@ -214,8 +214,8 @@ const Breadcrumb = ({ text, location }: { text: string; location: string }) => {
     <Link
       borderRadius="6px"
       px="8px"
-      bg="mauve.800"
-      color="mauve.100"
+      bg="mauve_dark.800"
+      color="mauve_dark.100"
       fontSize="14px"
       href={location}
     >
@@ -237,7 +237,7 @@ const Results = () => {
             <Text
               px="12px"
               textTransform="uppercase"
-              color="mauve.500"
+              color="mauve_dark.500"
               fontSize="12px"
               fontWeight="semibold"
               fontFamily="Outfit, sans-serif"
@@ -276,7 +276,7 @@ const ResultItem = forwardRef(
         mx="8px"
         cursor="pointer"
         transition="all 200ms ease"
-        bg={active ? 'mauve.1000' : 'transparent'}
+        bg={active ? 'mauve_dark.1000' : 'transparent'}
         ref={ref}
       >
         <Flex alignItems="center">
@@ -286,19 +286,29 @@ const ResultItem = forwardRef(
             d="inline-flex"
             alignItems="center"
             justifyContent="center"
-            color="mauve.100"
+            color="mauve_dark.100"
             as="span"
           >
             {action.icon}
           </Text>
           <Flex flexDir="column">
             <Box pos="relative">
-              <Text color="mauve.100" fontSize="14px" fontFamily="Outfit, sans-serif" as="span">
+              <Text
+                color="mauve_dark.100"
+                fontSize="14px"
+                fontFamily="Outfit, sans-serif"
+                as="span"
+              >
                 {action.name}
               </Text>
             </Box>
             {action.subtitle && (
-              <Text color="mauve.200" fontSize="12px" fontFamily="Outfit, sans-serif" as="span">
+              <Text
+                color="mauve_dark.200"
+                fontSize="12px"
+                fontFamily="Outfit, sans-serif"
+                as="span"
+              >
                 {action.subtitle}
               </Text>
             )}
@@ -311,9 +321,9 @@ const ResultItem = forwardRef(
                 key={sc}
                 borderRadius="4px"
                 borderBottom="2px solid"
-                borderColor="mauve.1000"
-                bg="mauve.1100"
-                color="mauve.100"
+                borderColor="mauve_dark.1000"
+                bg="mauve_dark.1100"
+                color="mauve_dark.100"
                 px="6px"
                 as="kbd"
               >

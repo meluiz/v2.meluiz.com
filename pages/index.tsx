@@ -33,14 +33,14 @@ const Page: NextPageWithLayout = () => {
             gap="20px"
             textAlign={{ base: 'center', md: 'left' }}
           >
-            <Heading px="12px" color="mauve.100" fontSize="48px" as="h1">
+            <Heading px="12px" color="mauve_dark.100" fontSize="48px" as="h1">
               Luiz Felipe
             </Heading>
             <Flex flexDir="column" px="12px" gap="10px">
-              <Text color="mauve.100" fontWeight="bold">
+              <Text color="mauve_dark.100" fontWeight="bold">
                 Desenvolvedor Front-end na RBR Digital
               </Text>
-              <Text maxW="512px" color="mauve.300" fontWeight="bold">
+              <Text maxW="512px" color="mauve_dark.300" fontWeight="bold">
                 Desenvolvedor Front-end que ama tecnologias web e que coloca amor em tudo que
                 faz
               </Text>
@@ -68,10 +68,22 @@ const Page: NextPageWithLayout = () => {
               {isMoreThanTablet ? (
                 <Fragment>
                   Pressione{' '}
-                  <Text borderRadius="2px" bg="mauve.400" color="mauve.1200" px="6px" as="kbd">
+                  <Text
+                    borderRadius="2px"
+                    bg="mauve_dark.400"
+                    color="mauve_dark.1200"
+                    px="6px"
+                    as="kbd"
+                  >
                     ctrl
                   </Text>{' '}
-                  <Text borderRadius="2px" bg="mauve.400" color="mauve.1200" px="6px" as="kbd">
+                  <Text
+                    borderRadius="2px"
+                    bg="mauve_dark.400"
+                    color="mauve_dark.1200"
+                    px="6px"
+                    as="kbd"
+                  >
                     k
                   </Text>{' '}
                   para navegar

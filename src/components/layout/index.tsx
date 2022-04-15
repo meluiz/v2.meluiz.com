@@ -12,8 +12,8 @@ const Component = ({ children }: LayoutProps) => {
       h="100vh"
       position="relative"
       overflow="auto"
-      bg="mauve.1200"
-      color="mauve.100"
+      bg="mauve_dark.1200"
+      color="mauve_dark.100"
     >
       <Navigation />
       {children}
