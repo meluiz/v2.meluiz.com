@@ -17,7 +17,6 @@ import {
   KBarPortal,
   KBarPositioner,
   KBarProvider,
-  KBarQuery,
   KBarResults,
   KBarSearch,
   NO_GROUP,
@@ -177,7 +176,8 @@ const Search = () => {
         border="none"
         margin={0}
         background="transparent"
-        color="$primary"
+        color="mauve.100"
+        placeholder="Digite algum comando ou palavra-chave"
         _focus={{ outline: 'none' }}
         _placeholder={{ color: 'mauve.600' }}
         as={KBarSearch}
