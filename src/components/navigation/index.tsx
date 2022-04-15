@@ -1,7 +1,24 @@
-import { IconBrandCodepen, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons'
-import { Box, Container, Flex, Link, List, ListItem, Text } from '@chakra-ui/react'
+import {
+  IconBrandCodepen,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMoon,
+  IconSun,
+} from '@tabler/icons'
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Link,
+  List,
+  ListItem,
+  Text,
+  useColorMode,
+} from '@chakra-ui/react'
 
 const Component = () => {
+  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Box w="100%" h="56px" pos="absolute" top="0" left="0" bg="inherit" zIndex="10">
       <Container maxW="100%" h="100%">
@@ -66,6 +83,26 @@ const Component = () => {
                   target="_blank"
                 >
                   <IconBrandGithub />
+                </Flex>
+              </ListItem>
+            </Flex>
+            <Flex gap="4px" as={List}>
+              <ListItem>
+                <Flex
+                  w="40px"
+                  h="40px"
+                  p="0"
+                  d="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  bg="transparent"
+                  _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
+                  href="https://codepen.io/meluiz"
+                  target="_blank"
+                  as={Button}
+                  onClick={toggleColorMode}
+                >
+                  {colorMode === 'dark' ? <IconMoon /> : <IconSun />}
                 </Flex>
               </ListItem>
             </Flex>
