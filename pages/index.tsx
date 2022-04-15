@@ -1,7 +1,6 @@
 import type { NextPageWithLayout } from '@src/types/next'
 import { Fragment, ReactElement } from 'react'
 import { useKBar } from 'kbar'
-
 import { Layout } from '@src/components'
 import {
   Box,
@@ -48,11 +47,23 @@ const Page: NextPageWithLayout = () => {
             </Flex>
             <Flex
               gap="8px"
-              bg="transparent"
               px="12px"
-              _hover={{ bg: 'mauve.1000' }}
-              as={Button}
+              bg={{
+                base: 'rgba(191,78,99, 0.1)',
+                lg: 'transparent',
+              }}
+              border={{
+                base: '1px solid rgba(191,78,99, 1)',
+                lg: 'none',
+              }}
+              _hover={{
+                bg: {
+                  base: 'rgba(191,78,99, 0.2)',
+                  lg: 'none',
+                },
+              }}
               onClick={() => query.toggle()}
+              as={Button}
             >
               {isMoreThanTablet ? (
                 <Fragment>
