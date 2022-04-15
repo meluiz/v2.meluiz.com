@@ -1,5 +1,5 @@
 import { IconBrandCodepen, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons'
-import { Box, Container, Flex, Link, List, ListItem } from '@chakra-ui/react'
+import { Box, Container, Flex, Link, List, ListItem, Text } from '@chakra-ui/react'
 
 const Component = () => {
   return (
@@ -15,7 +15,10 @@ const Component = () => {
               p="2px 12px"
               _hover={{ borderRadius: '4px', bg: 'mauve.1000' }}
             >
-              meluiz
+              <Text color="#BF4E63" as="span">
+                me
+              </Text>
+              luiz
             </Link>
           </Flex>
           <Flex flex="1" justifyContent="flex-end" px="12px">
