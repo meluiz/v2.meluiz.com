@@ -15,7 +15,7 @@ const Theme = extendTheme(
       mono: 'JetBrains Mono, monospace',
     },
     colors: {
-      mauve: {
+      mauve_dark: {
         100: mauveDark.mauve12,
         200: mauveDark.mauve11,
         300: mauveDark.mauve10,
