@@ -131,10 +131,12 @@ const Animator = ({ children }: { children: ReactNode }) => {
     <Box
       w="100%"
       maxW="420px"
+      maxH="100%"
       borderRadius="8px"
       overflow="hidden"
       bg={useColorModeValue('mauve_light.1200', 'mauve_dark.1200')}
       color={useColorModeValue('mauve_light.100', 'mauve_dark.100')}
+      css={{ '> div': { height: '100%', display: 'flex', flexDirection: 'column' } }}
       as={KBarAnimator}
     >
       {children}
@@ -234,7 +236,26 @@ const Results = () => {
   const color = useColorModeValue('mauve_light.400', 'mauve_dark.500')
 
   return (
-    <Flex flexDir="column" py="12px" ref={wrapperRef}>
+    <Flex
+      ref={wrapperRef}
+      flexDir="column"
+      overflow="auto"
+      py="12px"
+      css={{
+        '> div': {
+          marginInline: '3px',
+          color: useColorModeValue('rgba(0,0,0,.3)', 'rgba(255,255,255,.2)'),
+          scrollbarWidth: 'thin',
+          '&::-webkit-scrollbar': { width: '4px' },
+          '&::-webkit-scrollbar-track': { width: '6px' },
+          '&::-webkit-scrollbar-thumb': {
+            transition: 'all 300ms ease',
+            background: 'currentColor',
+            borderRadius: '24px',
+          },
+        },
+      }}
+    >
       <KBarResults
         items={results.filter((i) => i !== NO_GROUP)}
         onRender={({ item, active }) =>
