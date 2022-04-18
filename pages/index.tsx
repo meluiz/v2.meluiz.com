@@ -9,13 +9,16 @@ import {
   Flex,
   Heading,
   Text,
-  useDisclosure,
+  useColorModeValue,
   useMediaQuery,
 } from '@chakra-ui/react'
 
 const Page: NextPageWithLayout = () => {
   const { query } = useKBar()
   const [isMoreThanTablet] = useMediaQuery('(min-width: 768px)')
+
+  const kbd_bg = useColorModeValue('mauve_light.400', 'mauve_dark.400')
+  const kbd_color = useColorModeValue('mauve_light.1200', 'mauve_dark.1200')
 
   return (
     <Box w="100%" pos="relative">
@@ -33,14 +36,26 @@ const Page: NextPageWithLayout = () => {
             gap="20px"
             textAlign={{ base: 'center', md: 'left' }}
           >
-            <Heading px="12px" color="mauve_dark.100" fontSize="48px" as="h1">
+            <Heading
+              px="12px"
+              color={useColorModeValue('mauve_light.100', 'mauve_dark.100')}
+              fontSize="48px"
+              as="h1"
+            >
               Luiz Felipe
             </Heading>
             <Flex flexDir="column" px="12px" gap="10px">
-              <Text color="mauve_dark.100" fontWeight="bold">
+              <Text
+                color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
+                fontWeight="bold"
+              >
                 Desenvolvedor Front-end na RBR Digital
               </Text>
-              <Text maxW="512px" color="mauve_dark.300" fontWeight="bold">
+              <Text
+                maxW="512px"
+                color={useColorModeValue('mauve_light.400', 'mauve_dark.300')}
+                fontWeight="bold"
+              >
                 Desenvolvedor Front-end que ama tecnologias web e que coloca amor em tudo que
                 faz
               </Text>
@@ -56,6 +71,10 @@ const Page: NextPageWithLayout = () => {
                 base: '1px solid rgba(191,78,99, 1)',
                 lg: 'none',
               }}
+              color={{
+                base: useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100'),
+                lg: useColorModeValue('mauve_light.200', 'mauve_dark.100'),
+              }}
               _hover={{
                 bg: {
                   base: 'rgba(191,78,99, 0.2)',
@@ -68,22 +87,10 @@ const Page: NextPageWithLayout = () => {
               {isMoreThanTablet ? (
                 <Fragment>
                   Pressione{' '}
-                  <Text
-                    borderRadius="2px"
-                    bg="mauve_dark.400"
-                    color="mauve_dark.1200"
-                    px="6px"
-                    as="kbd"
-                  >
+                  <Text borderRadius="2px" bg={kbd_bg} color={kbd_color} px="6px" as="kbd">
                     ctrl
                   </Text>{' '}
-                  <Text
-                    borderRadius="2px"
-                    bg="mauve_dark.400"
-                    color="mauve_dark.1200"
-                    px="6px"
-                    as="kbd"
-                  >
+                  <Text borderRadius="2px" bg={kbd_bg} color={kbd_color} px="6px" as="kbd">
                     k
                   </Text>{' '}
                   para navegar

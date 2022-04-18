@@ -9,7 +9,7 @@ import {
   IconMail,
   IconX,
 } from '@tabler/icons'
-import { Box, Button, Flex, Grid, Input, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Input, Link, Text, useColorModeValue } from '@chakra-ui/react'
 import {
   Action,
   ActionImpl,
@@ -25,7 +25,6 @@ import {
 } from 'kbar'
 
 const Provider = ({ children }: { children: ReactNode }) => {
-  const router = useRouter()
   const actions: Action[] = [
     {
       id: 'general-copy-url',
@@ -134,8 +133,8 @@ const Animator = ({ children }: { children: ReactNode }) => {
       maxW="420px"
       borderRadius="8px"
       overflow="hidden"
-      bg="mauve_dark.1200"
-      color="mauve_dark.100"
+      bg={useColorModeValue('mauve_light.1200', 'mauve_dark.1200')}
+      color={useColorModeValue('mauve_light.100', 'mauve_dark.100')}
       as={KBarAnimator}
     >
       {children}
@@ -146,7 +145,11 @@ const Animator = ({ children }: { children: ReactNode }) => {
 const Search = () => {
   const { query } = useKBar()
   return (
-    <Flex flexDir="column" borderBottom="1px solid" borderColor="mauve_dark.1000">
+    <Flex
+      flexDir="column"
+      borderBottom="1px solid"
+      borderColor={useColorModeValue('mauve_light.1000', 'mauve_dark.1000')}
+    >
       <Flex p="8px 12px 0px">
         <Breadcrumbs />
         <Button
@@ -158,9 +161,9 @@ const Search = () => {
           flexShrink={0}
           flexGrow={0}
           bg="transparent"
-          color="mauve_dark.100"
-          _hover={{ bg: 'mauve_dark.800' }}
-          _active={{ bg: 'mauve_dark.600' }}
+          color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
+          _hover={{ bg: useColorModeValue('mauve_light.800', 'mauve_dark.800') }}
+          _active={{ bg: useColorModeValue('mauve_light.800', 'mauve_dark.800') }}
           onClick={() => query.toggle()}
         >
           <IconX size={16} />
@@ -176,10 +179,10 @@ const Search = () => {
         border="none"
         margin={0}
         background="transparent"
-        color="mauve_dark.100"
+        color={useColorModeValue('mauve_light.100', 'mauve_dark.100')}
         placeholder="Digite algum comando ou palavra-chave"
         _focus={{ outline: 'none' }}
-        _placeholder={{ color: 'mauve_dark.600' }}
+        _placeholder={{ color: useColorModeValue('mauve_light.600', 'mauve_dark.600') }}
         as={KBarSearch}
       />
     </Flex>
@@ -214,8 +217,8 @@ const Breadcrumb = ({ text, location }: { text: string; location: string }) => {
     <Link
       borderRadius="6px"
       px="8px"
-      bg="mauve_dark.800"
-      color="mauve_dark.100"
+      bg={useColorModeValue('mauve_light.800', 'mauve_dark.800')}
+      color={useColorModeValue('mauve_light.100', 'mauve_dark.100')}
       fontSize="14px"
       href={location}
     >
@@ -228,6 +231,8 @@ const Results = () => {
   const { results } = useMatches()
   const wrapperRef = useRef(null)
 
+  const color = useColorModeValue('mauve_light.400', 'mauve_dark.500')
+
   return (
     <Flex flexDir="column" py="12px" ref={wrapperRef}>
       <KBarResults
@@ -237,7 +242,7 @@ const Results = () => {
             <Text
               px="12px"
               textTransform="uppercase"
-              color="mauve_dark.500"
+              color={color}
               fontSize="12px"
               fontWeight="semibold"
               fontFamily="Outfit, sans-serif"
@@ -266,6 +271,12 @@ const ResultItem = forwardRef(
     },
     ref: React.Ref<HTMLDivElement>
   ) => {
+    const hover = useColorModeValue('mauve_light.900', 'mauve_dark.1000')
+    const subtitle = useColorModeValue('mauve_light.400', 'mauve_dark.200')
+    const kbd_color = useColorModeValue('mauve_light.300', 'mauve_dark.100')
+    const kbd_bg = useColorModeValue('mauve_light.600', 'mauve_dark.1100')
+    const kbd_border = useColorModeValue('mauve_light.400', 'mauve_dark.1000')
+
     return (
       <Flex
         alignItems="center"
@@ -276,7 +287,7 @@ const ResultItem = forwardRef(
         mx="8px"
         cursor="pointer"
         transition="all 200ms ease"
-        bg={active ? 'mauve_dark.1000' : 'transparent'}
+        bg={active ? hover : 'transparent'}
         ref={ref}
       >
         <Flex alignItems="center">
@@ -286,7 +297,7 @@ const ResultItem = forwardRef(
             d="inline-flex"
             alignItems="center"
             justifyContent="center"
-            color="mauve_dark.100"
+            color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
             as="span"
           >
             {action.icon}
@@ -294,7 +305,7 @@ const ResultItem = forwardRef(
           <Flex flexDir="column">
             <Box pos="relative">
               <Text
-                color="mauve_dark.100"
+                color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
                 fontSize="14px"
                 fontFamily="Outfit, sans-serif"
                 as="span"
@@ -303,12 +314,7 @@ const ResultItem = forwardRef(
               </Text>
             </Box>
             {action.subtitle && (
-              <Text
-                color="mauve_dark.200"
-                fontSize="12px"
-                fontFamily="Outfit, sans-serif"
-                as="span"
-              >
+              <Text color={subtitle} fontSize="12px" fontFamily="Outfit, sans-serif" as="span">
                 {action.subtitle}
               </Text>
             )}
@@ -321,9 +327,9 @@ const ResultItem = forwardRef(
                 key={sc}
                 borderRadius="4px"
                 borderBottom="2px solid"
-                borderColor="mauve_dark.1000"
-                bg="mauve_dark.1100"
-                color="mauve_dark.100"
+                borderColor={kbd_border}
+                bg={kbd_bg}
+                color={kbd_color}
                 px="6px"
                 as="kbd"
               >

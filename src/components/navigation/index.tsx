@@ -15,6 +15,7 @@ import {
   ListItem,
   Text,
   useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react'
 
 const Component = () => {
@@ -30,7 +31,11 @@ const Component = () => {
               fontWeight="600"
               fontFamily="Outfit, sans-serif"
               p="2px 12px"
-              _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
+              color={useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100')}
+              _hover={{
+                borderRadius: '4px',
+                bg: useColorModeValue('rgba(191,78,99, .1)', 'mauve_dark.1000'),
+              }}
             >
               <Text color="#BF4E63" as="span">
                 me
@@ -39,7 +44,11 @@ const Component = () => {
             </Link>
           </Flex>
           <Flex flex="1" justifyContent="flex-end" px="12px" gap="24px">
-            <Flex gap="4px" as={List}>
+            <Flex
+              gap="4px"
+              color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
+              as={List}
+            >
               <ListItem>
                 <Flex
                   w="40px"
@@ -47,7 +56,10 @@ const Component = () => {
                   d="flex"
                   alignItems="center"
                   justifyContent="center"
-                  _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
+                  _hover={{
+                    borderRadius: '4px',
+                    bg: useColorModeValue('mauve_light.800', 'mauve_dark.1000'),
+                  }}
                   as={Link}
                   href="https://codepen.io/meluiz"
                   target="_blank"
@@ -62,7 +74,10 @@ const Component = () => {
                   d="flex"
                   alignItems="center"
                   justifyContent="center"
-                  _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
+                  _hover={{
+                    borderRadius: '4px',
+                    bg: useColorModeValue('mauve_light.800', 'mauve_dark.1000'),
+                  }}
                   as={Link}
                   href="https://www.linkedin.com/in/meluiz"
                   target="_blank"
@@ -77,7 +92,10 @@ const Component = () => {
                   d="flex"
                   alignItems="center"
                   justifyContent="center"
-                  _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
+                  _hover={{
+                    borderRadius: '4px',
+                    bg: useColorModeValue('mauve_light.800', 'mauve_dark.1000'),
+                  }}
                   as={Link}
                   href="https://github.com/meluiz"
                   target="_blank"
@@ -96,9 +114,11 @@ const Component = () => {
                   alignItems="center"
                   justifyContent="center"
                   bg="transparent"
-                  _hover={{ borderRadius: '4px', bg: 'mauve_dark.1000' }}
-                  href="https://codepen.io/meluiz"
-                  target="_blank"
+                  color={useColorModeValue('mauve_light.200', 'mauve_dark.100')}
+                  _hover={{
+                    borderRadius: '4px',
+                    bg: useColorModeValue('mauve_light.800', 'mauve_dark.1000'),
+                  }}
                   as={Button}
                   onClick={toggleColorMode}
                 >
