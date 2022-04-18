@@ -1,9 +1,9 @@
 import type { AppPropsWithLayout } from '@src/types/next'
 import { DefaultSeo } from 'next-seo'
+import { ApplicationContextProvider } from '@src/contexts/application.context'
 import { ChakraProvider, CommandPalette } from '@src/providers'
 import Head from 'next/head'
 
-import { ChakraTheme } from '@src/theme'
 import { SEOConfig } from '@src/config'
 
 function Application({ Component, pageProps }: AppPropsWithLayout) {
@@ -15,7 +15,9 @@ function Application({ Component, pageProps }: AppPropsWithLayout) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <CommandPalette>{getLayout(<Component {...pageProps} />)}</CommandPalette>
+      <ApplicationContextProvider>
+        <CommandPalette>{getLayout(<Component {...pageProps} />)}</CommandPalette>
+      </ApplicationContextProvider>
     </ChakraProvider>
   )
 }

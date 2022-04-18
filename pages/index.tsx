@@ -1,5 +1,6 @@
 import type { NextPageWithLayout } from '@src/types/next'
 import { Fragment, ReactElement } from 'react'
+import { useApplicationContext } from '@src/contexts'
 import { useKBar } from 'kbar'
 import { Layout } from '@src/components'
 import {
@@ -10,12 +11,11 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  useMediaQuery,
 } from '@chakra-ui/react'
 
 const Page: NextPageWithLayout = () => {
   const { query } = useKBar()
-  const [isMoreThanTablet] = useMediaQuery('(min-width: 768px)')
+  const { isMoreThanTablet } = useApplicationContext()
 
   const kbd_bg = useColorModeValue('mauve_light.400', 'mauve_dark.400')
   const kbd_color = useColorModeValue('mauve_light.1200', 'mauve_dark.1200')
