@@ -3,19 +3,19 @@
   "description": "Portfólio pessoal com o objetivo de mostrar meus projetos durante minha carreira.",
   "additionalMetaTags": [
     {
-      "property": "author",
-      "content": "meluiz#2667"
-    },
-    {
-      "property": "theme-color",
+      "name": "theme-color",
       "content": "#161618"
     },
     {
-      "property": "apple-mobile-web-app-capable",
+      "name": "author",
+      "content": "meluiz#2667"
+    },
+    {
+      "name": "apple-mobile-web-app-capable",
       "content": "yes"
     },
     {
-      "property": "apple-mobile-web-app-status-bar-style",
+      "name": "apple-mobile-web-app-status-bar-style",
       "content": "black-translucent"
     }
   ],
