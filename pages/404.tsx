@@ -3,8 +3,10 @@ import { Fragment, ReactElement } from 'react'
 
 import { useApplicationContext } from '@src/contexts'
 import { useKBar } from 'kbar'
+
+import NextLink from 'next/link'
 import { Layout } from '@src/components'
-import { Button, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react'
+import { Button, Flex, Heading, Link, Text, useColorModeValue } from '@chakra-ui/react'
 
 const Page: NextPageWithLayout = () => {
   const { query } = useKBar()
@@ -12,6 +14,9 @@ const Page: NextPageWithLayout = () => {
 
   const kbd_bg = useColorModeValue('mauve_light.400', 'mauve_dark.400')
   const kbd_color = useColorModeValue('mauve_light.1200', 'mauve_dark.1200')
+
+  const mColor = useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100')
+  const dColor = useColorModeValue('mauve_light.200', 'mauve_dark.100')
 
   return (
     <Flex
@@ -42,31 +47,16 @@ const Page: NextPageWithLayout = () => {
           </Text>
           4
         </Heading>
-        <Flex
-          gap="8px"
-          px="12px"
-          bg={{
-            base: 'rgba(191,78,99, 0.1)',
-            lg: 'transparent',
-          }}
-          border={{
-            base: '1px solid rgba(191,78,99, 1)',
-            lg: 'none',
-          }}
-          color={{
-            base: useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100'),
-            lg: useColorModeValue('mauve_light.200', 'mauve_dark.100'),
-          }}
-          _hover={{
-            bg: {
-              base: 'rgba(191,78,99, 0.2)',
-              lg: 'none',
-            },
-          }}
-          onClick={() => query.toggle()}
-          as={Button}
-        >
-          {isMoreThanTablet ? (
+        {isMoreThanTablet ? (
+          <Flex
+            gap="8px"
+            px="12px"
+            color={dColor}
+            bg="transparent"
+            _hover={{ bg: 'transparent' }}
+            onClick={() => query.toggle()}
+            as={Button}
+          >
             <Fragment>
               Pressione{' '}
               <Text borderRadius="2px" bg={kbd_bg} color={kbd_color} px="6px" as="kbd">
@@ -77,10 +67,25 @@ const Page: NextPageWithLayout = () => {
               </Text>{' '}
               para ir ao início
             </Fragment>
-          ) : (
-            <Fragment>Toque para voltar ao início</Fragment>
-          )}
-        </Flex>
+          </Flex>
+        ) : (
+          <NextLink href="/" passHref>
+            <Link
+              minH="40px"
+              display="inline-flex"
+              alignItems="center"
+              justifyContent="center"
+              border="1px solid rgba(191,78,99, 1)"
+              borderRadius="6px"
+              px="12px"
+              bg="rgba(191,78,99, 0.1)"
+              color={mColor}
+              _hover={{ bg: 'rgba(191,78,99, 0.2)' }}
+            >
+              Toque para voltar ao início
+            </Link>
+          </NextLink>
+        )}
       </Flex>
     </Flex>
   )
