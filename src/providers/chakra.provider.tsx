@@ -8,7 +8,7 @@ const Provider = ({ cookies, children }: ChakraProps) => {
     typeof cookies === 'string' ? cookieStorageManager(cookies) : localStorageManager
 
   return (
-    <ChakraProvider theme={ChakraTheme} colorModeManager={colorModeManager}>
+    <ChakraProvider theme={ChakraTheme} resetCSS colorModeManager={colorModeManager}>
       {children}
     </ChakraProvider>
   )
