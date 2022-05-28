@@ -245,7 +245,7 @@ const Results = () => {
   const { results } = useMatches()
   const wrapperRef = useRef(null)
 
-  const color = useColorModeValue('mauve_light.400', 'mauve_dark.500')
+  const color = useColorModeValue('mauve_light.200', 'mauve_dark.200')
 
   return (
     <Flex
@@ -265,28 +265,36 @@ const Results = () => {
             background: 'currentColor',
             borderRadius: '24px',
           },
+          '> div': {
+            '> div:first-of-type': {
+              '> div': { paddingTop: '0' },
+            },
+          },
         },
       }}
     >
       <KBarResults
         items={results.filter((i) => i !== NO_GROUP)}
-        onRender={({ item, active }) =>
-          typeof item === 'string' ? (
-            <Text
-              px="12px"
-              textTransform="uppercase"
-              color={color}
-              fontSize="12px"
-              fontWeight="semibold"
-              fontFamily="Outfit, sans-serif"
-              letterSpacing={0.5}
-            >
-              {item}
-            </Text>
-          ) : (
-            <ResultItem action={item} active={active} />
-          )
-        }
+        onRender={({ item, active }) => (
+          <Box pt={typeof item === 'string' ? '10px' : undefined} pos="relative">
+            {typeof item === 'string' ? (
+              <Text
+                px="12px"
+                textTransform="uppercase"
+                color={color}
+                fontSize="10px"
+                fontWeight="semibold"
+                fontFamily="Outfit, sans-serif"
+                letterSpacing={0.75}
+                py="4px"
+              >
+                {item}
+              </Text>
+            ) : (
+              <ResultItem action={item} active={active} />
+            )}
+          </Box>
+        )}
       />
     </Flex>
   )
