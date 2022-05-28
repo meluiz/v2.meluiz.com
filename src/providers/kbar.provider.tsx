@@ -306,7 +306,10 @@ const ResultItem = forwardRef(
         p="8px 12px"
         pl="4px"
         mx="8px"
-        cursor="pointer"
+        cursor={{
+          base: 'pointer',
+          lg: 'none',
+        }}
         transition="all 200ms ease"
         bg={active ? hover : 'transparent'}
         ref={ref}

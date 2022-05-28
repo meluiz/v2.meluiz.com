@@ -9,6 +9,13 @@ const config: ThemeConfig = {
 const Theme = extendTheme(
   { config },
   {
+    styles: {
+      global: {
+        '*': {
+          cursor: { lg: 'none' },
+        },
+      },
+    },
     fonts: {
       body: 'DM Sans, sans-serif',
       heading: 'Outfit, sans-serif',
@@ -47,11 +54,13 @@ const Theme = extendTheme(
     components: {
       Button: {
         baseStyle: {
+          cursor: { lg: 'none' },
           fontFamily: 'DM Sans, sans-serif',
         },
       },
       Link: {
         baseStyle: {
+          cursor: { lg: 'none' },
           _hover: {
             textDecoration: 'none',
           },
