@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import {
   IconBrandCodepen,
   IconBrandGithub,
@@ -25,23 +26,24 @@ const Component = () => {
       <Container maxW="100%" h="100%">
         <Flex w="100%" h="100%" alignItems="center" justifyContent="space-between">
           <Flex flex="1">
-            <Link
-              href="/"
-              fontSize="20px"
-              fontWeight="600"
-              fontFamily="Outfit, sans-serif"
-              p="2px 12px"
-              color={useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100')}
-              _hover={{
-                borderRadius: '4px',
-                bg: useColorModeValue('rgba(191,78,99, .1)', 'mauve_dark.1000'),
-              }}
-            >
-              <Text color="#BF4E63" as="span">
-                me
-              </Text>
-              luiz
-            </Link>
+            <NextLink href="/" passHref>
+              <Link
+                fontSize="20px"
+                fontWeight="600"
+                fontFamily="Outfit, sans-serif"
+                p="2px 12px"
+                color={useColorModeValue('rgba(191,78,99, 1)', 'mauve_dark.100')}
+                _hover={{
+                  borderRadius: '4px',
+                  bg: useColorModeValue('rgba(191,78,99, .1)', 'mauve_dark.1000'),
+                }}
+              >
+                <Text color="#BF4E63" as="span">
+                  me
+                </Text>
+                luiz
+              </Link>
+            </NextLink>
           </Flex>
           <Flex flex="1" justifyContent="flex-end" px="12px" gap="24px">
             <Flex
