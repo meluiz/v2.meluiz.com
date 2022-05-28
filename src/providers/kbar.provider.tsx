@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useMemo, useRef } from 'react'
+import { forwardRef, ReactNode, useRef } from 'react'
 import { useRouter } from 'next/router'
 import {
   IconBrandCodepen,
@@ -6,6 +6,7 @@ import {
   IconBrandLinkedin,
   IconCode,
   IconCopy,
+  IconHome,
   IconMail,
   IconX,
 } from '@tabler/icons'
@@ -25,6 +26,8 @@ import {
 } from 'kbar'
 
 const Provider = ({ children }: { children: ReactNode }) => {
+  const router = useRouter()
+
   const actions: Action[] = [
     {
       id: 'general-copy-url',
@@ -40,9 +43,18 @@ const Provider = ({ children }: { children: ReactNode }) => {
       name: 'Ver código-fonte',
       section: 'General',
       icon: <IconCode strokeWidth={1.5} />,
-      shortcut: ['s', 'c'],
-      keywords: 'go-source',
+      shortcut: ['s'],
+      keywords: 'view-source',
       perform: () => window.open('https://github.com/meluiz/meluiz.com', '_blank'),
+    },
+    {
+      id: 'go-to-home',
+      name: 'Inicio',
+      section: 'Navegação',
+      icon: <IconHome strokeWidth={1.5} />,
+      shortcut: ['g', 'h'],
+      keywords: 'go-home',
+      perform: () => router.push('/'),
     },
     {
       id: 'social-email',
@@ -50,7 +62,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       subtitle: 'me.luizfelipe@gmail.com',
       section: 'Sociais',
       icon: <IconMail strokeWidth={1.5} />,
-      shortcut: ['m'],
+      shortcut: ['e'],
       keywords: 'send-mail',
       perform: () => window.open('mailto:me.luizfelipe@gmail.com', '_blank'),
     },
@@ -60,7 +72,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       subtitle: 'https://codepen.io/meluiz',
       section: 'Sociais',
       icon: <IconBrandCodepen strokeWidth={1.5} />,
-      shortcut: ['c', 'p'],
+      shortcut: ['f', 'c'],
       keywords: 'go-codepen',
       perform: () => window.open('https://codepen.io/meluiz', '_blank'),
     },
@@ -70,7 +82,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       subtitle: 'https://www.linkedin.com/in/meluiz',
       section: 'Sociais',
       icon: <IconBrandLinkedin strokeWidth={1.5} />,
-      shortcut: ['l', 'd'],
+      shortcut: ['f', 'l'],
       keywords: 'go-linkedin',
       perform: () => window.open('https://www.linkedin.com/in/meluiz', '_blank'),
     },
@@ -80,7 +92,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       subtitle: 'https://github.com/meluiz',
       section: 'Sociais',
       icon: <IconBrandGithub strokeWidth={1.5} />,
-      shortcut: ['g', 'h'],
+      shortcut: ['f', 'g'],
       keywords: 'go-github',
       perform: () => window.open('https://github.com/meluiz', '_blank'),
     },
