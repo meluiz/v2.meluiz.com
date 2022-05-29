@@ -78,7 +78,8 @@ const Component = ({ children }: LayoutProps) => {
 
       updateFixed(true)
 
-      inner.style.transform = `translate(-50%, -50%) scale(0)`
+      inner.style.transform = `translate(-50%, -50%) scale(.25)`
+      inner.style.opacity = `0`
       outer.style.transform = `translate(0, 0) scale(1)`
       outer.style.width = `${width}px`
       outer.style.height = `${height}px`
@@ -96,6 +97,7 @@ const Component = ({ children }: LayoutProps) => {
 
     if (inner && outer) {
       inner.style.transform = `translate(-50%, -50%) scale(1)`
+      inner.style.opacity = `1`
       outer.style.transform = `translate(-50%, -50%) scale(1)`
       outer.style.width = `28px`
       outer.style.height = `28px`
@@ -165,7 +167,7 @@ const Component = ({ children }: LayoutProps) => {
         zIndex={99999}
         pointerEvents="none"
         userSelect="none"
-        transition="transform 600ms ease-out"
+        transition="transform 600ms ease-out, opacity 300ms ease-out"
       />
       <Box
         ref={outerCursor}
