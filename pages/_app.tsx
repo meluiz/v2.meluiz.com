@@ -4,6 +4,7 @@ import { ApplicationContextProvider } from '@src/contexts/application.context'
 import { ChakraProvider, CommandPalette } from '@src/providers'
 import Head from 'next/head'
 
+import { Analytics } from '@vercel/analytics/react';
 import { SEOConfig } from '@src/config'
 
 function Application({ Component, pageProps }: AppPropsWithLayout) {
@@ -18,6 +19,7 @@ function Application({ Component, pageProps }: AppPropsWithLayout) {
       <ApplicationContextProvider>
         <CommandPalette>{getLayout(<Component {...pageProps} />)}</CommandPalette>
       </ApplicationContextProvider>
+      <Analytics />
     </ChakraProvider>
   )
 }
