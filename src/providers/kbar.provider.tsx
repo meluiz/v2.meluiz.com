@@ -45,7 +45,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       icon: <IconCode strokeWidth={1.5} />,
       shortcut: ['s'],
       keywords: 'view-source',
-      perform: () => window.open('https://github.com/meluiz/meluiz.com', '_blank'),
+      perform: () => window.open('https://github.com/meluiz', '_blank'),
     },
     {
       id: 'go-to-home',
