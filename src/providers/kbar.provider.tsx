@@ -94,7 +94,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
       icon: <IconBrandGithub strokeWidth={1.5} />,
       shortcut: ['f', 'g'],
       keywords: 'go-github',
-      perform: () => window.open('https://github.com/meluiz', '_blank'),
+      perform: () => window.open('https://github.com/meluiz/v2.meluiz.com', '_blank'),
     },
   ]
 
