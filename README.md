@@ -16,13 +16,13 @@
 1. Clone this repo:
 
 ```sh
-$ https://github.com/meluiz/meluiz.com.git
+$ https://github.com/meluiz/v2.meluiz.com.git
 ```
 
 2. Go to the project's folder:
 
 ```sh
-$ cd meluiz.com
+$ cd v2.meluiz.com
 ```
 
 3. Install all dependencies:
