@@ -1,7 +1,7 @@
 # meluiz.com
 > Personal website to showing my project during my career
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/meluiz/meluiz.com)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/meluiz/v2.meluiz.com)
 
 ## Stack
 
